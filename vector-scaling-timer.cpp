@@ -27,7 +27,7 @@ int main() {
     x[k] *= alpha;
   end = clock();
   elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
-  std::cout << "Regular scaling: " << elapsed_secs << " s" << std::endl;
+  std::cout << "custom scaling: " << elapsed_secs << " s" << std::endl;
 
   // cblas
   initialize(n, x);
@@ -35,7 +35,7 @@ int main() {
   cblas_dscal(n, alpha, x, 1);
   end = clock();
   elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
-  std::cout << "cblas scaling: " << elapsed_secs << " s" << std::endl;
+  std::cout << "cblas scaling:  " << elapsed_secs << " s" << std::endl;
 
   // ublas
   boost::numeric::ublas::vector<double> v(n);
@@ -45,7 +45,7 @@ int main() {
   v *= alpha;
   end = clock();
   elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
-  std::cout << "uBLAS scaling: " << elapsed_secs << " s" << std::endl;
+  std::cout << "uBLAS scaling:  " << elapsed_secs << " s" << std::endl;
 
   return 0;
 }
